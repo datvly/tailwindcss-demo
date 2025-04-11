@@ -1,6 +1,4 @@
 import { useState, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -28,11 +26,10 @@ function App() {
   };
 
   return (
-    <>
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="profile-card">
+      <div className="bg-gray-100 p-6 rounded-xl w-96 h-auto">
         {/* Profile image input */}
-        <div className="profile-image">
+        <div className="rounded-full w-24 h-24 mb-4 hover:opacity-80 flex justify-center mx-auto bg-gray-200 overflow-hidden">
           <input
             type="file"
             accept="image/*"
@@ -43,13 +40,13 @@ function App() {
         
           <div 
             onClick={handleProfileImageClick}
-            className="profile-info"
+            className="w-full h-full cursor-pointer"
           >
             {imageUrl ? (
               <img
                 src={imageUrl}
                 alt="Profile"
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-cover"
               />
             ) : (
               <div className="flex justify-center items-center w-full h-full text-gray-400">
@@ -58,37 +55,37 @@ function App() {
             )}
           </div>
         </div>
-          {/* Name input */}
-          <div className="mb-6">
-            <input
-              type="text"
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="name-input"
-            />
-          </div>
-          {/* Bio textarea */}
-          <div className="mb-6">
-            <textarea
-              rows="3"
-              placeholder="Write a short bio about yourself..."
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              className="bio-textarea"
-            ></textarea>
-          </div>
+        
+        {/* Name input */}
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none sm:w-80 md:w-96"
+          />
+        </div>
+        
+        {/* Bio textarea */}
+        <div className="mb-6">
+          <textarea
+            rows={3}
+            placeholder="Write a short bio about yourself..."
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none sm:w-80 md:w-96"
+          ></textarea>
         </div>
 
         {/* Save Changes Button */}
-        <div className="save-button">
-          <button>
+        <div className="text-center">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
             Save Changes
           </button>
         </div>
       </div>
-    
-    </>
+    </div>
   )
 }
 
